@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:text="1"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:id="@+id/ImageView"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line 1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_toRightOf="@+id/ImageView"
+            android:layout_alignParentTop="true"
+            android:id="@+id/textView"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_toRightOf="@+id/ImageView"
+            android:text="Line 2"
+            android:textSize="15dp"
+            android:id="@+id/textview2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview2"
+            android:layout_toRightOf="@+id/ImageView"
+            android:text="Line 3"
+            android:textSize="15dp"
+            android:id="@+id/textview3"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview3"
+            android:layout_toRightOf="@+id/ImageView"
+            android:text="Line 4"
+            android:textSize="15dp"
+            android:id="@+id/textview4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview4"
+            android:layout_toRightOf="@+id/ImageView"
+            android:text="Line 5"
+            android:textSize="15dp"
+            android:id="@+id/textview5"/>v
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:src="@drawable/ic_chevron_right_black_24dp"-->
+<!--            />-->
+
+    </RelativeLayout>
+</LinearLayout>

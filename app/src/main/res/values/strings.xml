@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PillReminder</string>
+    <string name="your_text">Selected Date</string>
+
+    <string-array name="Items">
+        <item>Every Day</item>
+        <item>Every Other Day</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+
+
+    </string-array>
+</resources>
