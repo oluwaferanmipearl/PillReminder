@@ -9,16 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp">
-        <TextView
+        <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="2dp"
-            android:text="1"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
+           android:layout_alignParentLeft="true"
+            android:src="@drawable/pill1"
             android:id="@+id/ImageView"
+            android:padding="5dp"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +28,7 @@
             android:layout_toRightOf="@+id/ImageView"
             android:layout_alignParentTop="true"
             android:id="@+id/textView"
+
             />
 
         <TextView
@@ -37,8 +37,20 @@
             android:layout_below="@+id/textView"
             android:layout_toRightOf="@+id/ImageView"
             android:text="Line 2"
+            android:textColor="@android:color/black"
             android:textSize="15dp"
             android:id="@+id/textview2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_toRightOf="@+id/textview2"
+            android:text="  PIECE(S)"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:id="@+id/pieces"/>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,14 +75,23 @@
             android:layout_toRightOf="@+id/ImageView"
             android:text="Line 5"
             android:textSize="15dp"
-            android:id="@+id/textview5"/>v
+            android:id="@+id/textview5"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview5"
+            android:layout_toRightOf="@+id/ImageView"
+            android:text="Line 6"
+            android:textSize="15dp"
+            android:id="@+id/textview6"/>
 
-<!--        <ImageView-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:src="@drawable/ic_chevron_right_black_24dp"-->
-<!--            />-->
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_chevron_right_black_24dp"
+            />
 
     </RelativeLayout>
 </LinearLayout>

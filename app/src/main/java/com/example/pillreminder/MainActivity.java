@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity  {
     ArrayList<String> START_Array;
     ArrayList<String> END_Array;
     ArrayList<String> TIME_Array;
+    ArrayList<String> FREQUENCY_Array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity  {
         START_Array = new ArrayList<String>();
         END_Array = new ArrayList<String>();
         TIME_Array= new ArrayList<>();
+        FREQUENCY_Array= new ArrayList<>();
 
 
         sqLiteHelper = new SQLiteHelper(this);
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity  {
         START_Array.clear();
         END_Array.clear();
         TIME_Array.clear();
+        FREQUENCY_Array.clear();
 
         if (cursor.moveToFirst()) {
             do {
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity  {
                 START_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_3_startdate)));
                 END_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_4_enddate)));
                 TIME_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_5_time)));
+                FREQUENCY_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_6_frequency)));
 
 
             } while (cursor.moveToNext());
@@ -106,7 +110,9 @@ public class MainActivity extends AppCompatActivity  {
                DOSAGE_Array,
                 START_Array,
                 END_Array,
-                TIME_Array
+                TIME_Array,
+                FREQUENCY_Array
+
         );
 
         LISTVIEW.setAdapter(listAdapter);

@@ -53,9 +53,9 @@
                         android:id="@+id/set_Name"
                         android:textSize="15dp"
                         android:textAllCaps="true"
-                        android:hint="Paracetamol,cough syrup,antibiotics"
+                        android:hint="Paracetamol, Antibiotics, Cough syrup"
                         android:layout_height="wrap_content"
-                        android:inputType="text"/>
+                        android:inputType="textCapWords"/>
 
                 </LinearLayout>
 

@@ -22,6 +22,7 @@ public class ExampleAdapter extends BaseAdapter{
     ArrayList<String> Date1;
     ArrayList<String> Date2;
     ArrayList<String> TimeA;
+    ArrayList<String> FrequencyA;
 
 
 
@@ -33,7 +34,8 @@ public class ExampleAdapter extends BaseAdapter{
             ArrayList<String> dosage,
              ArrayList<String> date1,
                     ArrayList<String> date2,
-                    ArrayList<String> time
+                    ArrayList<String> time,
+            ArrayList<String>frequency
 
     )
     {
@@ -45,6 +47,7 @@ public class ExampleAdapter extends BaseAdapter{
         this.Date1=date1;
         this.Date2=date2;
         this.TimeA = time;
+        this.FrequencyA = frequency;
 
     }
 
@@ -76,12 +79,13 @@ public class ExampleAdapter extends BaseAdapter{
 
             holder = new Holder();
 
-            holder.ID_TextView =  child.findViewById(R.id.ImageView);
+            //holder.ID_TextView =  child.findViewById(R.id.ImageView);
             holder.Name_TextView =  child.findViewById(R.id.textView);
             holder.dosageTextView = child.findViewById(R.id.textview2);
             holder.starttextview = child.findViewById(R.id.textview3);
             holder.endtextview = child.findViewById(R.id.textview4);
             holder.timetextview= child.findViewById(R.id.textview5);
+            holder.frequencytextview= child.findViewById(R.id.textview6);
 
             child.setTag(holder);
 
@@ -89,24 +93,26 @@ public class ExampleAdapter extends BaseAdapter{
 
             holder = (Holder) child.getTag();
         }
-        holder.ID_TextView.setText(ID.get(position));
+        //holder.ID_TextView.setText(ID.get(position));
         holder.Name_TextView.setText(Name.get(position));
         holder.dosageTextView.setText(Dosage.get(position));
         holder.starttextview.setText(Date1.get(position));
         holder.endtextview.setText(Date2.get(position));
         holder.timetextview.setText(TimeA.get(position));
+        holder.frequencytextview.setText(FrequencyA.get(position));
 
         return child;
     }
 
     public class Holder {
 
-        TextView ID_TextView;
+        //TextView ID_TextView;
         TextView Name_TextView;
         TextView dosageTextView;
         TextView starttextview;
         TextView endtextview;
         TextView timetextview;
+        TextView frequencytextview;
     }
 
 }

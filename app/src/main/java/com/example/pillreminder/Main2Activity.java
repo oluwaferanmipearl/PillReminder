@@ -18,7 +18,6 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -42,8 +41,9 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
     EditText TextName;
     SQLiteDatabase sqLiteDatabaseObj;
     boolean EditTextEmptyHold;
-    String SQLiteDataBaseQueryHolder,Addtime1,Name1,Dosage1,Startdate1,Endate1;
-    String timeholder,dosageholder,startdateholder,enddateholder,nameholder;
+    String SQLiteDataBaseQueryHolder;
+    String AddTime1,TextStartDate1,TextEndDate1,TextDosage1,TextName1;
+    Spinner spinner;
 
 
 
@@ -62,7 +62,7 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
          TextStartDate = findViewById(R.id.set_date);
        TextEndDate = findViewById(R.id.set_date2);
         AddTime = findViewById(R.id.set_time);
-        Spinner spinner =  findViewById(R.id.spinner);
+         spinner =  findViewById(R.id.spinner);
         RelativeLayout date = findViewById(R.id.date);
         RelativeLayout date2 = findViewById(R.id.date2);
         RelativeLayout time = findViewById(R.id.time);
@@ -80,20 +80,15 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View view) {
 
-
-                        Intent intent = new Intent(Main2Activity.this, MainActivity.class);
-                        startActivity(intent);
+                Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                startActivity(intent);
 
                //the sqlite part
                 SQliteDataBaseBuild();
                 SQliteTableBuild();
                 CheckEditTextStatus();
                 InsertDataIntoSQLiteDatabase();
-                // ends here
-                //EmptyEditTextAfterDataInsert();
-
-//                Intent intent = new Intent(Main2Activity.this, MainActivity.class);
-//                startActivity(intent);
+              //ends here
             }
         });
 
@@ -176,18 +171,18 @@ public void InsertDataIntoSQLiteDatabase(){
     if(EditTextEmptyHold == true)
     {
 
-        SQLiteDataBaseQueryHolder = "INSERT INTO "+SQLiteHelper.TABLE_NAME+" (name,dosage,startdate,enddate,time) VALUES('"+nameholder+"', '"+dosageholder+"', '"+startdateholder+"', '"+enddateholder+"', '"+timeholder+"');";
+        SQLiteDataBaseQueryHolder = "INSERT INTO "+SQLiteHelper.TABLE_NAME+" (name,dosage,startdate,enddate,time,frequency) VALUES('"+TextName1+"', '"+TextDosage1+"', '"+AddTime1+"','"+TextStartDate1+"', '"+TextEndDate1+"','"+spinner.getSelectedItem().toString()+"');";
 
         sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
 
 
 
-        Toast.makeText(Main2Activity.this,"Data Inserted Successfully", Toast.LENGTH_LONG).show();
+        Toast.makeText(Main2Activity.this,"Done", Toast.LENGTH_LONG).show();
 
     }
     else {
 
-        //Toast.makeText(Main2Activity.this,"Please Fill All The Required Fields.", Toast.LENGTH_LONG).show();
+
 
     }
 
@@ -205,23 +200,16 @@ public void InsertDataIntoSQLiteDatabase(){
         sqLiteDatabaseObj = openOrCreateDatabase(SQLiteHelper.DATABASE_NAME, Context.MODE_PRIVATE, null);
     }
 
-    private void EmptyEditTextAfterDataInsert() {
-        TextDosage.setText("");
-        TextName.setText("");
-        TextStartDate.setText("");
-        AddTime.setText("");
-        TextEndDate.setText("");
 
-    }
 
     // ends here
 
     public void CheckEditTextStatus() {
-        String AddTime1 = AddTime.getText().toString().trim();
-        String TextStartDate1 = TextStartDate.getText().toString().trim();
-        String TextEndDate1 = TextEndDate.getText().toString().trim();
-        String TextDosage1 =TextDosage.getText().toString().trim();
-        String TextName1 = TextName.getText().toString().trim();
+         AddTime1 = AddTime.getText().toString().trim();
+       TextStartDate1 = TextStartDate.getText().toString().trim();
+        TextEndDate1 = TextEndDate.getText().toString().trim();
+         TextDosage1 =TextDosage.getText().toString().trim();
+        TextName1 = TextName.getText().toString().trim();
         if (TextUtils.isEmpty(AddTime1) ||TextUtils.isEmpty(TextDosage1) ||TextUtils.isEmpty(TextEndDate1) ||TextUtils.isEmpty(TextStartDate1) ||TextUtils.isEmpty(TextName1))
         {
             EditTextEmptyHold=false;
@@ -338,19 +326,19 @@ public void InsertDataIntoSQLiteDatabase(){
             donebutton.setEnabled(!AddTime1.isEmpty()&&!TextDosage1.isEmpty()&&!TextEndDate1.isEmpty()&&!TextName1.isEmpty()&&!TextStartDate1.isEmpty());
 
             if(AddTime1.isEmpty()){
-                Toast.makeText(getApplicationContext(),"please,Fill up all fields",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Fill All The Required Fields.",Toast.LENGTH_LONG).show();
             }
             else if(TextDosage1.isEmpty()){
-                Toast.makeText(getApplicationContext(),"please,Fill up all fields",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Fill All The Required Fields.",Toast.LENGTH_LONG).show();
             }
             else if(TextEndDate1.isEmpty()){
-                Toast.makeText(getApplicationContext(),"please,Fill up all fields",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Fill All The Required Fields.",Toast.LENGTH_LONG).show();
             }
             else if (TextName1.isEmpty()){
-                Toast.makeText(getApplicationContext(),"please,Fill up all fields",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Fill All The Required Fields.",Toast.LENGTH_LONG).show();
             }
             else if(TextStartDate1.isEmpty()){
-                Toast.makeText(getApplicationContext(),"please,Fill up all fields",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Please Fill All The Required Fields.",Toast.LENGTH_LONG).show();
             }
             else{}
 

@@ -3,10 +3,10 @@
     <string name="your_text">Selected Date</string>
 
     <string-array name="Items">
-        <item>Every Day</item>
+        <item>Once a day</item>
+        <item>Twice a day</item>
+        <item>Three times a day</item>
         <item>Every Other Day</item>
-        <item>Weekly</item>
-        <item>Monthly</item>
 
 
     </string-array>
