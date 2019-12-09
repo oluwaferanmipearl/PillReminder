@@ -175,8 +175,7 @@ public void InsertDataIntoSQLiteDatabase(){
 
     if(EditTextEmptyHold == true)
     {
-
-        SQLiteDataBaseQueryHolder = "INSERT INTO "+SQLiteHelper.TABLE_NAME+" (name,dosage,startdate,enddate,time) VALUES('"+nameholder+"', '"+dosageholder+"', '"+startdateholder+"', '"+enddateholder+"', '"+timeholder+"');";
+        SQLiteDataBaseQueryHolder = "INSERT INTO "+SQLiteHelper.TABLE_NAME+" (name,dosage,startdate,enddate,time) VALUES('"+TextName.getText().toString()+"', '"+TextDosage.getText().toString()+"', '"+TextStartDate.getText().toString()+"', '"+TextEndDate.getText().toString()+"', '"+AddTime.getText().toString()+"');";
 
         sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
 
