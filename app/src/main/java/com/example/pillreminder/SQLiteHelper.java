@@ -16,7 +16,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public static final String Table_Column_2_Dosage="dosage";
 
-
     public static final String Table_Column_3_startdate="startdate";
 
     public static final String Table_Column_4_enddate="enddate";

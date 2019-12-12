@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.ListView;
 
 
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity  {
     ArrayList<String> TIME_Array;
     ArrayList<String> FREQUENCY_Array;
 
+    ArrayList<String> ListViewClickItemArray = new ArrayList<String>();
+    String TempHolder;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity  {
 
         sqLiteHelper = new SQLiteHelper(this);
 
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +67,23 @@ public class MainActivity extends AppCompatActivity  {
                 // Click action
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 startActivity(intent);
+            }
+        });
+
+
+        LISTVIEW.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // TODO Auto-generated method stub
+
+                Intent intent = new Intent(getApplicationContext(),ShowSingleRecordActivity.class);
+
+                intent.putExtra("ListViewClickedItemValue", ListViewClickItemArray.get(position).toString());
+
+                startActivity(intent);
+
             }
         });
 
@@ -90,9 +115,8 @@ public class MainActivity extends AppCompatActivity  {
             do {
 
                 ID_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_ID)));
-
+                ListViewClickItemArray.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_ID)));
                 NAME_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_1_Name)));
-
                 DOSAGE_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_2_Dosage)));
                 START_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_3_startdate)));
                 END_Array.add(cursor.getString(cursor.getColumnIndex(SQLiteHelper.Table_Column_4_enddate)));

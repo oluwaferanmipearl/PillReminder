@@ -1,16 +1,12 @@
 package com.example.pillreminder;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -79,13 +75,9 @@ public class ExampleAdapter extends BaseAdapter{
 
             holder = new Holder();
 
-            //holder.ID_TextView =  child.findViewById(R.id.ImageView);
+
             holder.Name_TextView =  child.findViewById(R.id.textView);
             holder.dosageTextView = child.findViewById(R.id.textview2);
-            holder.starttextview = child.findViewById(R.id.textview3);
-            holder.endtextview = child.findViewById(R.id.textview4);
-            holder.timetextview= child.findViewById(R.id.textview5);
-            holder.frequencytextview= child.findViewById(R.id.textview6);
 
             child.setTag(holder);
 
@@ -93,26 +85,19 @@ public class ExampleAdapter extends BaseAdapter{
 
             holder = (Holder) child.getTag();
         }
-        //holder.ID_TextView.setText(ID.get(position));
+
         holder.Name_TextView.setText(Name.get(position));
         holder.dosageTextView.setText(Dosage.get(position));
-        holder.starttextview.setText(Date1.get(position));
-        holder.endtextview.setText(Date2.get(position));
-        holder.timetextview.setText(TimeA.get(position));
-        holder.frequencytextview.setText(FrequencyA.get(position));
 
         return child;
     }
 
     public class Holder {
 
-        //TextView ID_TextView;
+
         TextView Name_TextView;
         TextView dosageTextView;
-        TextView starttextview;
-        TextView endtextview;
-        TextView timetextview;
-        TextView frequencytextview;
+
     }
 
 }
